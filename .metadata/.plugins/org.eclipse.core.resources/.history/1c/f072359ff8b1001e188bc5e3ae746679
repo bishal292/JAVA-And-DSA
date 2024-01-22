@@ -1,0 +1,36 @@
+package p2;
+
+import java.util.ArrayList;
+
+public class ArrayListPractice {
+
+	public static void main(String[] args) {
+//		ArrayList<Integer>al=new ArrayList<>();
+//		al.add(12);
+//		al.add(16);
+//		al.add(15);
+//		al.add(12);
+//		al.add(10);
+//		al.add(12);
+//		for (Integer in : al) {
+//			System.out.println(in);
+//		}
+//		for(int i=0;i<al.size()-1;i++) {
+//			System.out.println(al.get(i));
+//		}
+//		ArrayList a= new ArrayList();
+//		a.add(9);
+//		a.add("Hello");
+//		System.out.println(a);
+		int [] a= {5,8,9,1,4,7,0,13,16,119,243,43,76,87,5,10};
+		int temp=0;
+		for(int i=0;i<a.length-2;i++) {
+			if(temp>a[i+1]) {
+			}else {
+				temp=a[i+1];
+			}
+		}
+		System.out.println(temp);
+	}
+
+}
