@@ -266,8 +266,103 @@ public class Pattern {
 			System.out.println();
 		}
 	}
+	
+	static void pattern11(int n) {
+		for(int i=0;i<n;i++) {
+			for(int j=0;j<=i;j++) {
+				if((i+j)%2==0)
+					System.out.print("1 ");
+				else
+					System.out.print("0 ");
+			}
+			System.out.println();
+		}
+	}
+
+	static void pattern12(int n) {
+		for(int i=1;i<=n;i++) {
+			for(int j=1;j<=i;j++) {
+				System.out.print(j+" ");
+			}
+			for(int spaces=(n-i)*2;spaces>=1;spaces--) {
+				System.out.print("  ");
+			}
+			for(int k=i;k>=1;k--) {
+//				System.out.print(k+" ");
+				System.out.print(k +(k>1?" ":"") );// This is if else condition using ternary operator to print space only if k>1 
+			}
+			System.out.println();
+		}
+	}
+	
+	static void pattern13(int n) {
+		int num=1;
+		for(int i=1;i<=n;i++) {
+			for(int j=1;j<=i;j++) {
+				System.out.print(num+(num>9 ? " ":"  "));
+				num++;
+			}
+			System.out.println();
+		}
+	}
+	
+	static void pattern14(int n) {
+		for(int i=1;i<=n;i++) {
+			
+//			for(int j=1,num_ch=65;j<=i;j++,num_ch++) {
+//				if(num_ch>90)
+//					num_ch=65;
+//				System.out.print((char)num_ch+" ");
+//			}
+			
+//			OR *********
+			
+			char ch='A';
+			for(int j=1;j<=i;j++) {
+				if(j==27)
+					ch='A';
+				System.out.print(ch+" ");
+				ch++;
+			}
+			System.out.println();
+		}
+	}
+
+	static void pattern15(int n) {
+		for(int i=n;i>=1;i--) {
+			char ch='A';
+			for(int j=i;j>=1;j--) {
+				if(j==27)
+					ch='A';
+				System.out.print(ch+" ");
+				ch++;
+			}
+			System.out.println();
+		}
+	}
+
+	static void pattern16(int n) {
+		for(int i=1;i<=n;i++) {
+			for(int spaces=n-i;spaces>=1;spaces--) {
+				System.out.print("  ");
+			}
+			char ch='A';
+			for(int j=2*i-1;j>=1;j--) {//j denotes the no. character to be printed.
+				System.out.print(ch+" ");
+				if(j>i)
+					ch++;
+				else
+					ch--;
+			}
+			System.out.println();
+		}
+	}
+
+	static void pattern17(int n) {
+		
+	}
 	public static void main(String[] args) {
-		pattern10(5);
+		pattern16(5);
 	}
 
 }
