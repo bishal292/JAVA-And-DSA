@@ -2,3 +2,7 @@
 /AA_TestProgram/
 /.metadata/
 # /metadata/
+.settings
+.project
+.classpath
+modeule-info.java
