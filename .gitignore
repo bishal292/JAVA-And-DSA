@@ -1,8 +1,10 @@
 /AA_Practical/
 /AA_TestProgram/
 /.metadata/
+/bin/
+/.settings/
 # /metadata/
 .settings
 .project
 .classpath
-modeule-info.java
+module-info.java
