@@ -359,10 +359,104 @@ public class Pattern {
 	}
 
 	static void pattern17(int n) {
-		
+		char ch='A';
+		ch+=n-1;
+		for(int i=1;i<=n;i++) {
+			if(i>1)
+				ch-=i;
+			for(int j=1;j<=i;j++,ch++) { // from second iteration it will increment both j and ch simultaneously.
+				System.out.print(ch+" ");
+			}
+			System.out.println();
+		}
+	}
+	
+	static void pattern18(int n) {
+		for(int i=1;i<=n;i++) {// Upper portion of the pattern
+			for(int in_stars=n;in_stars>=i;in_stars--) {//Printing initial stars
+				System.out.print("* ");
+			}
+			for(int spaces=(i-1)*2;spaces>=1;spaces--) {
+				System.out.print("  ");
+			}
+			for(int la_stars=n;la_stars>=i;la_stars--) {//Printing stars which is later than spaces.
+				System.out.print("*"+(la_stars>1?" ":""));
+			}
+			System.out.println();
+		}
+		//Lower portion of the pattern
+		for(int i=1;i<=n;i++) {
+			for (int j=1;j<=i;j++) {
+				System.out.print("* ");
+			}
+			for(int spaces=(n-i)*2;spaces>=1;spaces--) {
+				System.out.print("  ");
+			}
+			for(int j=1;j<=i;j++) {
+				System.out.print("*"+(j==i?"":" "));
+			}
+			System.out.println();
+		}
+	}
+
+	static void pattern19(int n) {
+		for(int i=1;i<=n;i++) {
+			for(int j=1;j<=i;j++) {
+				System.out.print("* ");
+			}
+			for(int spaces=(n-i)*2;spaces>=1;spaces--) {
+				System.out.print("  ");
+			}
+			for(int j=1;j<=i;j++) {
+				System.out.print("* ");
+			}
+			System.out.println();
+		}
+		for(int i=n;i>=1;i--) {
+			for(int j=1;j<=i;j++) {
+				System.out.print("* ");
+			}
+			for(int spaces=(n-i)*2;spaces>=1;spaces--) {
+				System.out.print("  ");
+			}
+			for(int j=1;j<=i;j++) {
+				System.out.print("* ");
+			}
+			System.out.println();
+		}
+	}
+
+	static void pattern20(int n) {
+		for(int i=1;i<=n;i++) {
+			for(int j=1;j<=n;j++) {
+				if((i==1||i==n)||(j==1||j==n)) {
+					System.out.print("*");
+				}else {
+					System.out.print(" ");
+				}
+			}
+			System.out.println();
+		}
+	}
+	
+	static void pattern21(int n) {
+		for (int i = 1; i <= 2 * n - 1; i++) {
+	        for (int j = 1; j <= 2 * n - 1; j++) {
+//	        	int topdist=i;
+//	        	int leftDist=j;
+//	        	int rightDist=2*n-j;
+//	        	int bottomDist=2*n-i; // minimum from all these value will help in getting the number to be printed after subtraction from (n+1)
+//	        	int minDistance=Math.min(Math.min(topdist, bottomDist), Math.min(leftDist, rightDist));
+	        			// ****************** OR *******************
+	        	
+	            int minDistance = Math.min(Math.min(i, j), Math.min(2 * n - i, 2 * n - j));
+	            System.out.print((n - minDistance + 1) + " ");
+	        }
+	        System.out.println();
+	    }
 	}
 	public static void main(String[] args) {
-		pattern16(5);
+		pattern21(4);
 	}
 
 }
