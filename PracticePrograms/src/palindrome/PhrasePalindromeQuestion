@@ -1,0 +1,37 @@
+A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+
+Example 1:
+	Input: s = "A man, a plan, a canal: Panama"
+	Output: true
+	Explanation: "amanaplanacanalpanama" is a palindrome.
+	
+Example 2:
+	Input: s = "race a car"
+	Output: false
+	Explanation: "raceacar" is not a palindrome.
+Example 3:
+	Input: s="0P"
+	Output: false
+	Explanation: "0p" is not a palindrome.
+	
+	
+Solution: 
+	Algorithm:
+		1. Initialize Pointers: Start with two pointers, one at the beginning of the string (i = 0) and one at the end of the string (j = s.length() - 1).
+
+		2. Iterate Through the String: Use a while loop to iterate through the string, comparing characters at the left and right pointers.
+
+		3. Character Processing: For each character at the left pointer, check if it is an alphanumeric character. If it's an uppercase letter, convert it to lowercase. 
+			If it's a non-alphanumeric character, skip to the next iteration along with variation in index value respective to the pointer.
+
+		4. Repeat for Right Pointer: Perform the same character processing for the character at the right pointer.
+
+		5. Comparison: After processing both characters, compare them. If they are not equal, return false immediately as the string cannot be a palindrome.
+
+		6. Move Pointers: Increment the left pointer (i) and decrement the right pointer (j).
+
+		7. Continue Loop: Repeat steps 3-6 until the left pointer is greater than or equal to the right pointer.
+
+		8. Return true: If the loop completes without returning false, the string is a valid palindrome, and the function should return true.
+		
+		
