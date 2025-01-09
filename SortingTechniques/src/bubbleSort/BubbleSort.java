@@ -1,5 +1,7 @@
 package bubbleSort;
 
+import java.util.Arrays;
+
 public class BubbleSort {
 
     /**
@@ -18,7 +20,7 @@ public class BubbleSort {
     public static void bubbleSort(int[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
             boolean isSwapped = false;
-            for (int j = 0; j < arr.length - 1; j++) {
+            for (int j = 0; j < arr.length - 1 - i; j++) {
                 if (arr[j] > arr[j + 1]) {
                     isSwapped = true;
                     arr[j] += arr[j+1];
@@ -31,11 +33,9 @@ public class BubbleSort {
     }
 
     public static void main(String[] args) {
-        int[] arr = {10,20,20,30,10};
+        int[] arr = {10,20,20,30,10,-5 , 1, 0, -98,34,9, 9,143, 98, 76, 7, 1,43,54};
         bubbleSort(arr);
 
-        for (int elements : arr) {
-            System.out.print(elements+", ");
-        }
+        System.out.println(Arrays.toString(arr));
     }
 }
