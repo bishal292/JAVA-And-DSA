@@ -30,6 +30,10 @@ public class BinarySearch {
 		int start = 0;
 		int end = arr.length-1;
 		
+		if(target > arr[end]) { // If the target element is the largest number itself and there is no any greater element in the array.
+			return -1;
+		}
+		
 		while(start <= end) {
 			int mid = start +(end - start)/2;
 			
@@ -72,7 +76,7 @@ public class BinarySearch {
 		int[] arr = {2,3,5,9,14,16,18};
 		
 		System.out.println(binarySearch(arr, 14)); // OutPut: 4
-		System.out.println(ceilingNumber(arr, 15)); // Output: 5
+		System.out.println(ceilingNumber(arr, 19)); // Output: 5
 		System.out.println(floorNumber(arr, 15)); // Output: 4
 	}
 }

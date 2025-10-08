@@ -37,7 +37,7 @@ Binary search is an efficient algorithm for finding an item from a sorted list o
 
 [***CODE***](#find-peak-index-in-a-mountain-array)
 
-### 3. Find Target Element Index in a Mountain Array ([LeetCode 1095](https://leetcode.com/problems/find-in-mountain-array/))
+### 3. Find Target Element Index in a Mountain Array ([LeetCode 1095](https://leetcode.com/problems/find-in-mountain-array/))  ([LeetCode 81](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/))
 - **Problem:** Given a mountain array and a target value, find the index of the target value.
 - **Solution:** First, find the peak index using binary search, then search in the left and right subarrays.
 - **Intuition and Approach:**
@@ -46,6 +46,33 @@ Binary search is an efficient algorithm for finding an item from a sorted list o
   - If the target is not found, perform binary search on the right subarray (which is sorted in descending order).
 
 [***CODE***](#find-target-element-index-in-a-mountain-array)
+
+### 4. Find Pivot in Rotated Sorted Array
+- **Problem:** Given a rotated sorted array, find the index of the largest element (pivot).
+- **Solution:** Use binary search to find the point where the array changes from increasing to decreasing.
+- **Intuition and Approach:**
+  - The pivot is the index where `arr[i] > arr[i+1]` or `arr[i] < arr[i-1]`.
+  - Use binary search to efficiently locate this point.
+
+[***CODE***](#find-pivot-in-rotated-sorted-array)
+
+### 5. Search in Rotated Sorted Array ([LeetCode 33](https://leetcode.com/problems/search-in-rotated-sorted-array/))
+- **Problem:** Given a rotated sorted array and a target value, find the index of the target.
+- **Solution:** Use binary search, considering the rotation to decide which half to search.
+- **Intuition and Approach:**
+  - Determine which part of the array is sorted.
+  - Adjust the search boundaries based on the target's relation to the sorted part.
+
+[***CODE***](#search-in-rotated-sorted-array)
+
+### 6. Split Array Largest Sum ([LeetCode 410](https://leetcode.com/problems/split-array-largest-sum/))
+- **Problem:** Split an array into `k` non-empty subarrays such that the largest sum among these subarrays is minimized.
+- **Solution:** Use binary search on the possible answer range.
+- **Intuition and Approach:**
+  - The smallest possible largest sum is the max element, and the largest is the sum of all elements.
+  - Use binary search to find the minimum largest sum that allows splitting into `k` subarrays.
+
+[***CODE***](#split-array-largest-sum)
 
 ## Code Examples
 
@@ -132,3 +159,84 @@ public static int binarySearchInMountainArray(int[] arr, int target) {
     }
     return -1;
 }
+```
+
+### Find Pivot in Rotated Sorted Array
+```java
+public static int pivotInRotatedSortedArray(int[] arr) {
+    int left = 0;
+    int right = arr.length-1;
+    while(left < right) {
+        int mid = left + (right - left)/2;
+        if(arr[mid] > arr[mid+1]) {
+            return mid;
+        } else if(arr[mid] < arr[mid - 1]) {
+            return mid -1;
+        } else if(arr[left] < arr[mid]) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return -1;
+}
+```
+
+### Search in Rotated Sorted Array
+```java
+public static int searchInRotatedSortedArray(int[] nums,int target) {
+    int n = nums.length;
+    int left =0, right =n-1;
+    while(left <= right){
+        int mid = left + (right-left)/2;
+        if(nums[mid] == target) return mid;
+        if (nums[left] <= nums[mid]) {
+            if (nums[left] <= target && target < nums[mid]) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        } else {
+            if (nums[mid] < target && target <= nums[right]) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+    }
+    return -1;
+}
+```
+
+### Split Array Largest Sum
+```java
+public static int splitArray(int[] nums, int k) {
+    int start = 0;
+    int end = 0;
+    for(int num : nums){
+        start = Math.max(start,num);
+        end += num;
+    }
+    while(start < end){
+        int mid = start + (end - start)/2;
+        int pieces = 1;
+        int sum = 0;
+        for(int num : nums){
+            if(sum + num > mid){
+                pieces++;
+                sum = num;
+            }else{
+                sum += num;
+            }
+            if(pieces > k){
+                start = mid + 1;
+                break;
+            }
+        }
+        if(pieces <= k){
+            end = mid;
+        }
+    }
+    return end;
+}
+```

@@ -92,15 +92,126 @@ public class Problems {
 	}
 	
 //	-------------------------------------------------------------------------------------------------------------
+	
+	public static int pivotInRotatedSortedArray(int[] arr) {
+		int left = 0;
+		int right = arr.length-1;
+		
+		while(left < right) {
+			int mid = left + (right - left)/2;
+
+//			[1,2,3,4,5,6,7] --> [4,5,6,7,1,2,3] 
+//			There will be a single point(2 elems) where the array is descending i.e [7,1]
+//			and cases where arr[i] > arr[i+1]  OR  arr[i] <
+			
+			if(arr[mid] > arr[mid+1]) {
+				return mid;
+			}else if(arr[mid] < arr[mid - 1]) {
+				return mid -1;
+			}else if(arr[left] < arr[mid]) {
+				left = mid + 1;
+			}else {
+				right = mid - 1;
+			}
+		}
+		return -1;// if array is not rotated
+	}
+	
+	
+	/**
+	 * @param nums array which is sorted and rotated
+	 * @param target element to search in the array.
+	 * 
+	 * @author Bishal Singh
+	 * @return index of the element id found else -1;
+	 * */
+	public static int searchInRotatedSortedArray(int[] nums,int target) {
+		int n = nums.length;
+        int left =0, right =n-1;
+        while(left <= right){
+            int mid = left + (right-left)/2;
+            if(nums[mid] == target) return mid;
+
+            if (nums[left] <= nums[mid]) {
+                if (nums[left] <= target && target < nums[mid]) {
+                    right = mid - 1;
+                } else {
+                    left = mid + 1;
+                }
+            } else {
+                if (nums[mid] < target && target <= nums[right]) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+        }
+		return -1;
+	}
+	
+
+//	-------------------------------------------------------------------------------------------------------------
+
+	/**
+	 * Takes an integer array nums and an integer k, split nums into k non-empty subarrays such that the largest sum of any subarray is minimized.
+	 * 
+	 * @param nums
+	 * @param k
+	 * @return Return the minimized largest sum of the split.
+	 */
+    public static int splitArray(int[] nums, int k) {
+        int start = 0; // will store the smallest possible answer
+        int end = 0; // will store the largest possible answer
+
+        for(int num : nums){
+            start = Math.max(start,num);
+            end += num;
+        }
+
+        // Binary search in the range
+        while(start < end){
+            int mid = start + (end - start)/2;
+            int pieces = 1; // the minimum pieces in which the array can be divided will be 1.
+            int sum = 0; // keeps track of the elems sum.
+
+            for(int num : nums){
+                if(sum + num > mid){ // checks if adding current elem will exceeds the maximum value if yes then the array will now be divided into another piesce and the sum for the new piece will resets to the current elem.
+                    pieces++;
+                    sum = num;
+                }else{
+                    sum += num;
+                }
+
+                if(pieces > k){ // if at any points the number of pieces is increased than the required no. of piece(K) means the potetial answer is larger than the current potential ans(mid)
+                    start = mid + 1;
+                    break;
+                }
+            }
+
+            if(pieces <= k){ // If the no. of Pieces(parts) formed for the current potential ans(mid) is less than eq. to the req. parts(k) then this might be the answer but there is a possibility that further more smaller number could be the answer so, check for it.
+                end = mid;
+            }
+        }
+        return end;
+    }
+	
+	
+//	-------------------------------------------------------------------------------------------------------------
 
 	public static void main(String[] args) {
 		int[] arr = {5,7,7,8,8,10};
 //		For the above array where target is 7: Output must be [1,2] where 1 is start index and 2 is the last index of 7 occurances in arr.
 //		Similary for 5:Output will be [0,0] and for 9: [-1,-1]
+		
+		int[] rotArray = {5,6,7,1,2,3,4};
+		
+		
 		System.out.println(Arrays.toString(findFirstAndLastPosOfElem(arr, 8))); // Output: [3,4]
 		
 		System.out.println( peakIndex(new int[]{0,1,2,5,6,11,9,7,6,4,2,1,0}) ); // Output: 5
 		System.out.println( binarySearchInMountainArray(new int[]{0,1,2,5,6,11,9,7,6,4,2,1,0}, 8) ); // Output: 5
+		System.out.println(pivotInRotatedSortedArray(rotArray)); // Output: 2 ; -1 if array is not rotated.
+		System.out.println(splitArray(rotArray, 4)); // Output: 9
 	}
 }
 
@@ -142,5 +253,19 @@ class Helper{
 		}
 		
 		return ans;
+	}
+	static int binarySearchBetweenRange(int[] arr,int start,int end,int target) {
+		
+		while(start <= end ) {
+			int mid = start + (end - start) / 2;
+			
+			if(arr[mid] < target) {
+				start = mid + 1;
+			}else if(arr[mid] > target) {
+				end = mid - 1;
+			}else return mid;
+		}
+		
+		return -1;
 	}
 }
