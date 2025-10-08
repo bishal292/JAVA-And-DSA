@@ -198,20 +198,47 @@ public class Problems {
 	
 //	-------------------------------------------------------------------------------------------------------------
 
+    
+    public static int[] twoDSearch(int[][] matrix, int target) {
+    	int r = 0;
+    	int c = matrix[0].length - 1;
+    	
+    	while(r < matrix.length && c >= 0) {
+    		if(matrix[r][c] == target) {
+    			return new int[] {r,c};
+    		}
+    		if(matrix[r][c] < target) {
+    			r++;
+    		}else {
+    			c--;
+    		}
+    	}
+    	
+    	return new int[] {-1,-1};
+    }
+    
+    
+    
+//	-------------------------------------------------------------------------------------------------------------
+
 	public static void main(String[] args) {
 		int[] arr = {5,7,7,8,8,10};
 //		For the above array where target is 7: Output must be [1,2] where 1 is start index and 2 is the last index of 7 occurances in arr.
 //		Similary for 5:Output will be [0,0] and for 9: [-1,-1]
 		
 		int[] rotArray = {5,6,7,1,2,3,4};
+		int[][] twoDArr = {{1 ,2 ,3 ,4 ,5 },
+						   {6 ,7 ,8 ,9 ,10},
+						   {11,12,13,14,15},
+						   {16,17,18,19,20}};
 		
 		
 		System.out.println(Arrays.toString(findFirstAndLastPosOfElem(arr, 8))); // Output: [3,4]
-		
 		System.out.println( peakIndex(new int[]{0,1,2,5,6,11,9,7,6,4,2,1,0}) ); // Output: 5
 		System.out.println( binarySearchInMountainArray(new int[]{0,1,2,5,6,11,9,7,6,4,2,1,0}, 8) ); // Output: 5
 		System.out.println(pivotInRotatedSortedArray(rotArray)); // Output: 2 ; -1 if array is not rotated.
 		System.out.println(splitArray(rotArray, 4)); // Output: 9
+		System.out.println(Arrays.toString(twoDSearch(twoDArr, 2))); // Output: [0,1]
 	}
 }
 
