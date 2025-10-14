@@ -8,30 +8,30 @@ public class SelectionSort {
 	public static void selectionSort(int[] arr) {
 //		Sorting from left to right in ascending order.
 		
-//		for (int i = 0; i < arr.length - 1; i++) {
-//			int minIdx = i;
-//			for (int j = i + 1; j < arr.length; j++) {
-//				if (arr[j] < arr[minIdx]) {
-//					minIdx = j;
-//				}
-//			}
-//			// Swapping the smallest element with its corresponding position.
-//			int temp = arr[minIdx];
-//			arr[minIdx] = arr[i];
-//			arr[i] = temp;
-//		}
-		
-		for (int i = 0; i < arr.length; i++) {
-			int maxElemIdx = 0;
-			for(int j = 0; j< arr.length-i;j++) {
-				if(arr[j] > arr[maxElemIdx]) {
-					maxElemIdx = j;
+		for (int i = 0; i < arr.length - 1; i++) {
+			int minIdx = i;
+			for (int j = i + 1; j < arr.length; j++) {
+				if (arr[j] < arr[minIdx]) {
+					minIdx = j;
 				}
 			}
-			int temp = arr[maxElemIdx];
-			arr[maxElemIdx] = arr[arr.length-i-1];
-			arr[arr.length - i -1] = temp;
+			// Swapping the smallest element with its corresponding position.
+			int temp = arr[minIdx];
+			arr[minIdx] = arr[i];
+			arr[i] = temp;
 		}
+		
+//		for (int i = 0; i < arr.length; i++) {
+//			int maxElemIdx = 0;
+//			for(int j = 0; j< arr.length-i;j++) {
+//				if(arr[j] > arr[maxElemIdx]) {
+//					maxElemIdx = j;
+//				}
+//			}
+//			int temp = arr[maxElemIdx];
+//			arr[maxElemIdx] = arr[arr.length-i-1];
+//			arr[arr.length - i -1] = temp;
+//		}
 		
 //		Sorting from right to left which will also be in ascending order.
 	}

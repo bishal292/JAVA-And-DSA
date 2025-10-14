@@ -119,6 +119,7 @@ public class Problems {
 	
 	
 	/**
+	 * LeetCode 33 -> Search for the target elements in the given array which is rotatedSorted.
 	 * @param nums array which is sorted and rotated
 	 * @param target element to search in the array.
 	 * 
@@ -153,6 +154,7 @@ public class Problems {
 //	-------------------------------------------------------------------------------------------------------------
 
 	/**
+	 * LeetCode 410 ->
 	 * Takes an integer array nums and an integer k, split nums into k non-empty subarrays such that the largest sum of any subarray is minimized.
 	 * 
 	 * @param nums
