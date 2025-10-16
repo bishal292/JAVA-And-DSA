@@ -38,7 +38,7 @@ out/
 .mvn/
 .gradle/
 build/
-
+/.idea
 # Ignore log files
 *.log
 
