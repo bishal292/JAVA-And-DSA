@@ -26,6 +26,6 @@ public class Fibonnaci {
 	
 	
     public static void main(String[] args) {
-    	
+        System.out.println(fibnocciNthTerm(10));
     }
 }

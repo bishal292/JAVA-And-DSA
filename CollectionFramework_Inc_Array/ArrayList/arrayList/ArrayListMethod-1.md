@@ -1,9 +1,6 @@
 
----
-
 ### **Instance Methods of ArrayList in Java**
 
-```markdown
 # ArrayList: Instance Methods in Java
 
 ## Overview
