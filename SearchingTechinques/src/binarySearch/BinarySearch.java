@@ -1,5 +1,7 @@
 package binarySearch;
 
+import java.util.Arrays;
+
 public class BinarySearch {
 //	It is the efficient Searching algorithm used to sarch an element in a sorted array.
 //	In worst it's time complexity can be O(log N) i.e. when the req, element doesn't exists in the array.
@@ -74,6 +76,7 @@ public class BinarySearch {
 	
 	public static void main(String[] args) {
 		int[] arr = {2,3,5,9,14,16,18};
+        Arrays.sort(arr);
 		
 		System.out.println(binarySearch(arr, 14)); // OutPut: 4
 		System.out.println(ceilingNumber(arr, 19)); // Output: 5
