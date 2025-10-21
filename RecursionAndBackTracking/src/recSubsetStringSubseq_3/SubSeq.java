@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SubSeq {
+    /*SubSequence means the sequence of adjacent character or elements means not any element between the range should be missing from original.
+    SubSet means the elements formed from the original element by containing all or less number of elements where the element may or may not be adjacent.
+    */
     /*
      * Function to print all the sub-String from the given String.
      *                  Subset Pattern
@@ -61,7 +64,13 @@ public class SubSeq {
         System.out.println(ans);
         System.out.println(subSeqAscii("","abc"));
 
-        int[] arr = {1,2,3,2,3}; // [ [1], [2], [3], [1,2], [1,3], [2,3], [1,2,3] ] -> means the function should return type List<List>
+        ArrayList<ArrayList<Integer>> ansSub = subSet(new int[]{1,2,3}); // [1], [2], [1,2], [3], [1,3], [2,3], [1,2,3] -> means the function should return type List<List>
+        for (ArrayList<Integer> a:ansSub){
+            System.out.print(a + " ");
+        }
+        System.out.println();
+
+        int[] arr = {1,2,3,2,3};
 
         ArrayList<ArrayList<Integer>> ansSubset = subsetWithDuplicate(arr);
         System.out.print("[ ");
@@ -73,7 +82,7 @@ public class SubSeq {
     }
 
     /*
-    * Function to return an arraylist containing subsets as an arraylist each.
+    * Function to return an arraylist containing subsets.
     * total subarray count (inc. null) -> 2 ^ n
     *           Time Complexity: Outer Loop runs for n time.
     *                               -> Inner loops runs for the size of outer arrayList ( till the subarray count for previous elems.)
