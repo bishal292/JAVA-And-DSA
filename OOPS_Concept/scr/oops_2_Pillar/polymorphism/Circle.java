@@ -1,0 +1,7 @@
+package oops_2_Pillar.polymorphism;
+
+public class Circle extends Shapes {
+    void area(){
+        System.out.println("Area of Circle is pi * r * r.");
+    }
+}

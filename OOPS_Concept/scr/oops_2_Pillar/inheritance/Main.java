@@ -45,7 +45,7 @@ public class Main {
 //        here the box is a reference type of super class 'Box' but it is actually referring to the child class 'BoxWeight' object means it is of type 'Box' only but is declared like an BoxWeight object.
 //        That's why it will have access to the member which are in the superclass itself.
         Box box = new BoxWeight(43, 24, 45, 70, "testing some fun stuff");
-//        box.weight; // cannot be accessed even though it is declared in constructor while object creation as weight is the property of child class.
+//        double weight = box.weight; // cannot be accessed even though it is declared in constructor while object creation as weight is the property of child class.
         box.getInfo();
         Box box2 = obj; // Here obj is an object of BoxWeight
 //        double weight1= box2.weight;

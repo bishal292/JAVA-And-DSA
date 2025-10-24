@@ -1,61 +1,80 @@
 # Inheritance in Java
 
-Inheritance is a key feature(concept) in OOP that allows one class to acquire the properties and behaviors of another class. It is implemented using the `extends` keyword.
+Inheritance is a fundamental concept in Object-Oriented Programming (OOP) that allows one class (child/subclass) to acquire the properties and behaviors of another class (parent/superclass). In Java, inheritance is implemented using the `extends` keyword.
 
-## Key Points
-- **Parent/Base Class**: The class whose properties are inherited.
-- **Child/Derived Class (Sub-Class)**: The class that inherits the properties of the parent class.
+## Key Concepts
+
+- **Parent/Base Class:** The class whose members are inherited.
+- **Child/Derived Class:** The class that inherits from the parent.
 
 ### Syntax
+
 ```java
-class B extends A {
-    // Body of class B
+class Child extends Parent {
+    // Child class body
 }
 ```
-In this example:
-- `A` is the **Parent Class**.
-- `B` is the **Child Class** (Sub-Class).
 
 ---
 
-## Inheritance Case Study
+## Types of Inheritance Demonstrated
 
-### Case 1: Instance Members from Parent to Child Class
-- All the **instance members** of the parent class are allocated memory within the instance memory of the child class object.
+- **Single Inheritance:** One child class inherits from one parent class.
+- **Multilevel Inheritance:** A class inherits from a child class, which itself inherits from another parent class.
+- **Hierarchical Inheritance:** Multiple child classes inherit from the same parent class.
 
-### Case 2: Static Members from Parent to Child Class
-- **Static members** of a class are allocated memory within the class they belong to.
-- Static members of the parent class are accessible to the child class and can be accessed using the child class name.
+*Note: Java does not support multiple inheritance directly (a class cannot extend more than one class), but it can be achieved using interfaces.*
 
-### Case 3: Constructors from Parent to Child Class
+---
 
-#### A) Non-Parameterized Constructor
-- The compiler automatically inserts a `super()` call in the child class constructor.
-- This `super()` call invokes the **parent class’s constructor**.
+## How Members Are Inherited
 
-#### B) Parameterized Constructor
-- When a parent class has a **parameterized constructor**, the child class constructor must explicitly call `super` with the required parameters.
+- **Instance Members:** All non-private instance variables and methods of the parent are accessible in the child.
+- **Static Members:** Static members are associated with the class and accessible via child class name.
+- **Private Members:** Not accessible in child classes.
+- **Constructors:** Parent constructors can be called from child constructors using `super()`.
 
-### Example: Constructor Usage
+---
+
+## Constructor Chaining
+
+- If the parent class has a parameterized constructor, the child must call it explicitly using `super(parameters)`.
+- If not specified, Java automatically inserts a call to the parent's no-argument constructor.
+
+---
+
+## Example Classes
+
+- [Box.java](./Box.java): Base class with dimensions.
+- [BoxWeight.java](./BoxWeight.java): Inherits from Box, adds weight.
+- [BoxPrice.java](./BoxPrice.java): Inherits from BoxWeight, adds cost.
+- [BoxColor.java](./BoxColor.java): Inherits from Box, adds color.
+
+See [Main.java](./Main.java) for usage and demonstration of inheritance types.
+
+---
+
+## Example
+
 ```java
-class A {
-    A() {
-        System.out.println("Parent Class Constructor");
-    }
-    
-    A(int x) {
-        System.out.println("Parent Class Parameterized Constructor: " + x);
-    }
-}
+class Box { ... }
+class BoxWeight extends Box { ... }
+class BoxPrice extends BoxWeight { ... }
+class BoxColor extends Box { ... }
+```
 
-class B extends A {
-    B() {
-        super(); // Calls A()
-        System.out.println("Child Class Constructor");
-    }
-    
-    B(int y) {
-        super(y); // Calls A(int x)
-        System.out.println("Child Class Parameterized Constructor: " + y);
-    }
-}
+---
+
+## Usage
+
+- Create objects of child classes to access both parent and child members.
+- Use `super()` in child constructors to initialize parent class members.
+
+---
+
+## Learn More
+
+- [Java Inheritance (Oracle Docs)](https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html)
+- [Main.java Example](./Main.java)
+
+---
