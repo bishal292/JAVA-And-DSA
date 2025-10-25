@@ -13,8 +13,10 @@
 - [Singleton Class](./oops_1_Concept/singleton/README.MD)
 - [Inheritance](./oops_2_Pillar/inheritance/README.MD)
 - [Polymorphism](./oops_2_Pillar/polymorphism/README.MD)
-- [Abstraction](./oops_2_Pillar/abstraction/README.MD)
-- [Encapsulation](./oops_2_Pillar/encapsulation/README.MD)
+- [Abstract Classes & Interfaces](./oops_3_abstract_Interface/README.MD)
+  - [Abstract Class Demo](./oops_3_abstract_Interface/abstractDemo/README.MD)
+  - [Interface Demo](./oops_3_abstract_Interface/interfaceDemo/README.MD)
+
 
 ---
 
@@ -42,6 +44,20 @@
 
 4. **Abstraction**
     - Hiding implementation details and exposing only essential features using abstract classes and interfaces.
+
+---
+
+## More on Abstraction & Encapsulation
+
+- For abstraction and encapsulation, refer to the documentation and examples in:
+  - [Inheritance](./oops_2_Pillar/inheritance/README.MD)
+  - [Polymorphism](./oops_2_Pillar/polymorphism/README.MD)
+  - [Abstract Classes](./oops_3_abstract_Interface/abstractDemo/README.MD)
+  - [Interfaces](./oops_3_abstract_Interface/interfaceDemo/README.MD)
+
+---
+
+For detailed explanations and code examples, refer to the linked sections above.
 
 ---
 

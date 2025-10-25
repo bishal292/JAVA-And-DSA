@@ -31,6 +31,8 @@ Access modifiers in Java determine the visibility and accessibility of classes, 
 - Accessible from any other class in any package.
 - Example: `public int getNum() { ... }`
 
+> NOTE: The top-tier (OuterMost) classes cannot be either protected or private.
+
 ## Visual Representation
 
 ![Access Modifier Table](./Access-Modifiers-in-Java-Table.png)
@@ -50,3 +52,5 @@ See [A.java](./A.java) and [Main.java](./Main.java) for practical examples of ho
 ## Summary
 
 Access modifiers are essential for encapsulation and controlling visibility in Java. Use them appropriately to protect data and structure your code for maintainability and security.
+
+> NOTE: A top-level/ Outer class cannot be Protected or Private because the top-level class itself must be discoverable from outside the file, which protected and private does not guarantee.

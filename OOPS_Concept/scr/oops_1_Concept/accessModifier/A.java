@@ -1,5 +1,9 @@
 package oops_1_Concept.accessModifier;
 
+/*
+* NOTE: The Top-level(Outermost) classes cannot be either protected or private.
+* */
+
 public class A {
 //    Private Members can be accessed only within the class they are created in including(Inner Class).
 
