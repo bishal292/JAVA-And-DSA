@@ -13,7 +13,7 @@ Overview
 - They provide O(1) insert/delete at ends (when tail/head pointers are maintained) and O(n) indexed access.
 - They are preferred when frequent insertions/deletions are required and contiguous memory is not desired.
 
-Diagrams
+## Diagrams
 - Singly linked list  
     ![Singly-Linked-List](https://media.geeksforgeeks.org/wp-content/uploads/singly-linkedlist.png)
 - Doubly linked list  
@@ -21,9 +21,9 @@ Diagrams
 - Circular linked list  
     ![Circular-Linked-List](https://media.geeksforgeeks.org/wp-content/uploads/20240402130347/circular-linked-list-copy.webp)
 
-Types, explanation and use-cases
+## Types, explanation and use-cases
 
-1) Singly Linked List
+### 1) Singly Linked List
 - Node structure: value, next
 - Use when you need simple sequential lists and O(1) head insert/delete.
 - Typical operations:
@@ -35,7 +35,7 @@ Types, explanation and use-cases
   - getFirst/getLast — O(1)
 - Implementation: CustomSinglyLinkedList.java
 
-2) Doubly Linked List
+### 2) Doubly Linked List
 - Node structure: prev, value, next
 - Adds backward traversal and O(1) removal of tail when tail is maintained.
 - Typical operations:
@@ -47,7 +47,7 @@ Types, explanation and use-cases
 - Use when bidirectional traversal or frequent removals from both ends are required.
 - Implementation: CustomDoublyLinkedList.java
 
-3) Circular Linked List (singly circular)
+### 3) Circular Linked List (singly circular)
 - Node structure: value, next; tail.next points to head
 - Useful for round-robin scheduling, continuous iteration, or when you want to loop the list.
 - Typical operations:
@@ -57,7 +57,7 @@ Types, explanation and use-cases
   - traversal must stop when node == head again (watch termination)
 - Implementation: CircularLinkedList.java
 
-Operations & Time Complexity (typical)
+## Operations & Time Complexity (typical)
 
 | Operation             | Singly | Doubly | Circular |
 |----------------------:|:------:|:------:|:--------:|
@@ -71,7 +71,7 @@ Operations & Time Complexity (typical)
 
 \* O(1) only if tail pointer maintained; otherwise O(n).
 
-Usage & Examples
+#### Usage & Examples
 - Compile and run Main.java to see demonstrations for each list.
 - The demo shows add, insert, remove, and special behaviors (reverse display, circular wrap-around).
 

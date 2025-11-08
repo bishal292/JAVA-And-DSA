@@ -51,6 +51,22 @@ public class CustomSinglyLinkedList {
         size++;
     }
 
+//    -----------------------------------------------------------------------------------------------------------------------------------------------------
+//                                  Insertion Using Recursion.
+//    -----------------------------------------------------------------------------------------------------------------------------------------------------
+    public void insertUseRec(int index,int value){
+        head = insertUsingRec(index,value,head);
+    }
+    private Node insertUsingRec(int index,int value,Node cur){
+        if(index == 0){
+            size++;
+            return new Node(value,cur);
+        }
+        if(cur == null)return null; /// if no element is left.
+        cur.nextNode = insertUsingRec(index-1,value,cur.nextNode);
+        return cur;
+    }
+
     /// Add element at the beginning
     public void addFirst(int elem) {
         Node newNode = new Node(elem);
@@ -136,6 +152,10 @@ public class CustomSinglyLinkedList {
 
         Node(int value) {
             this.value = value;
+        }
+        Node(int value,Node nextNode){
+            this.value = value;
+            this.nextNode = nextNode;
         }
     }
 }

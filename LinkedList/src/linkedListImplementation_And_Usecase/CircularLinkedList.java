@@ -123,11 +123,11 @@ public class CircularLinkedList {
         StringBuilder sb = new StringBuilder();
 //        sb.append("[");
         Node ptr = head;
-        while (ptr != tail) {
+        do {
             sb.append(ptr.value).append(" -> ");
 //            if (ptr.nextNode != null) sb.append(", ");
             ptr = ptr.nextNode;
-        }
+        }while (ptr != head);
 //        sb.append("]");
         sb.append(" END ");
         return sb.toString();
