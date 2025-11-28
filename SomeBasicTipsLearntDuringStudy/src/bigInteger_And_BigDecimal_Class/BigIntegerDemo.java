@@ -1,0 +1,24 @@
+package bigInteger_And_BigDecimal_Class;
+
+import java.math.BigInteger;
+
+public class BigIntegerDemo {
+    static void main(String[] args) {
+        BigInteger bg = BigInteger.valueOf(98543982943584L); /// Expects a long value and internally converts into a BigInteger Object.
+        ///  Can be created an bigInteger object with any amount of digits passed in the constructor as a string parameter.
+        BigInteger bg2 = new BigInteger("896533579857481739820134353756871683029819587893");
+
+        BigInteger add = bg.add(bg2);
+        BigInteger sub = bg2.subtract(bg);
+        BigInteger mul = bg.multiply(bg2);
+        BigInteger div = bg2.divide(bg);
+        BigInteger rem = bg2.remainder(bg);
+
+        System.out.println(add);
+        System.out.println(sub);
+        System.out.println(mul);
+        System.out.println(div);
+        System.out.println(rem);
+
+    }
+}
