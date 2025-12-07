@@ -74,8 +74,8 @@ class Employee {
     }
 
     void printDetails() {
-        System.out.println(STR."Name is : \{name} and salary is : \{salary}");
-        System.out.println(STR."Total number of Employee is : \{count}");
+        System.out.println("Name is : "+name+" and salary is : "+salary);
+        System.out.println("Total number of Employee is : "+count);
     }
 
     static void greet() {
