@@ -253,5 +253,15 @@ public class BFS {
             queue.offer(right.left);
         }
         return true;
+//        return helper(root.left,root.right); /// Recursive Approach of solving the same problem.
+    }
+    public boolean helper(TreeNode left,TreeNode right){
+        if(left == null && right == null)return true;
+        if(left == null || right == null)return false;
+        if(left.val != right.val) return false;
+
+        boolean flag = helper(left.left,right.right);
+        if(!flag)return false;
+        return helper(left.right,right.left);
     }
 }
