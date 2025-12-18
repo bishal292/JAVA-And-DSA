@@ -48,6 +48,6 @@ public class Box {
     }
 
     void getInfo() {
-        System.out.println(STR."Length: \{length} Width: \{width} Height: \{height} TestString value is \{name}");
+        System.out.println("Length:" +length +" Width: "+width +" Height: "+height+ "TestString value is: "+name);
     }
 }
