@@ -1,0 +1,2 @@
+Writing TEXT using ByteStream
+Internally this is binary data

@@ -1,0 +1,2 @@
+This is written using FileWriter
+FileWriter writes characters, not bytes

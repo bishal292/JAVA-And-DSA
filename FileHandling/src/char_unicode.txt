@@ -1,0 +1,4 @@
+English: Hello
+Hindi: नमस्ते
+Chinese: 你好
+Rune: ᛞ
