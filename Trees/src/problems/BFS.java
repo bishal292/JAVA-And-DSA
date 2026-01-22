@@ -9,7 +9,8 @@ public class BFS {
         public Node right;
         public Node next;
 
-        public Node() {}
+        public Node() {
+        }
 
         public Node(int _val) {
             val = _val;
@@ -23,10 +24,11 @@ public class BFS {
         }
     }
 
-/*
-*  Leetcode: 102 -> Binary Tree Level Order Traversal.
-* Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).
-* */
+    /**
+     * Leetcode: 102 -> Binary Tree Level Order Traversal.
+     * Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).
+     *
+     */
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> ans = new ArrayList<>();
         if (root == null)
@@ -51,45 +53,46 @@ public class BFS {
         return ans;
     }
 
-    /*
-     *  Leetcode: 637 -> Average of Levels in Binary Tree.
+    /**
+     * Leetcode: 637 -> Average of Levels in Binary Tree.
      * Given the root of a binary tree, return the average value of the nodes on each level in the form of an array. Answers within 10-5 of the actual answer will be accepted.
-     * */
+     *
+     */
     public List<Double> averageOfLevels(TreeNode root) {
         List<Double> ans = new ArrayList<>();
-        if(root == null)return ans;
+        if (root == null) return ans;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
-        while(!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             int n = queue.size(); // get the size of current level.
             double sum = 0l;
-            for(int i = 0;i<n;i++){
+            for (int i = 0; i < n; i++) {
                 TreeNode cur = queue.poll();
                 sum += cur.val;
-                if(cur.left != null)queue.offer(cur.left);
-                if(cur.right != null)queue.offer(cur.right);
+                if (cur.left != null) queue.offer(cur.left);
+                if (cur.right != null) queue.offer(cur.right);
             }
             ans.add(sum / n);
         }
         return ans;
     }
 
-// Asked in Google -> Return the successor(element next to k in the BFS) of k.
+    /// Asked in Google -> Return the successor(element next to k in the BFS) of k.
     public static TreeNode successor(TreeNode root, int k) {
-        if(root == null)return null;
+        if (root == null) return null;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
-        while(!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             TreeNode cur = queue.poll();
-            if(cur.left != null)queue.offer(cur.left);
-            if(cur.right != null)queue.offer(cur.right);
-            if(cur.val == k)return queue.poll();
+            if (cur.left != null) queue.offer(cur.left);
+            if (cur.right != null) queue.offer(cur.right);
+            if (cur.val == k) return queue.poll();
         }
         return null;
     }
 
 
-    /*
+    /**
      * Leetcode: 103 -> Binary Tree Zigzag Level Order Traversal
      * Given the root of a binary tree, return the zigzag level order traversal of its nodes' values. (i.e., from left to right, then right to left for the next level and alternate between).
      * */
@@ -129,8 +132,7 @@ public class BFS {
     }
 
 
-
-    /*
+    /**
      * Leetcode: 116 -> Populating Next Right Pointers in Each Node
      * */
     public Node connect(Node root) {
@@ -183,69 +185,70 @@ public class BFS {
     }
 
 
-    /*
+    /**
      * Leetcode: 199 -> Binary Tree Right Side View.
      * */
     public List<Integer> rightSideView(TreeNode root) {
         List<Integer> ans = new ArrayList<>();
-        if(root == null)return ans;
+        if (root == null) return ans;
         LinkedList<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
-        while(!queue.isEmpty()){
-            int n=queue.size();
+        while (!queue.isEmpty()) {
+            int n = queue.size();
             ans.add(queue.pollLast().val);
-            for(int i = 0;i<n;i++){
+            for (int i = 0; i < n; i++) {
                 TreeNode cur = queue.poll();
-                if(cur.left != null)queue.offer(cur.left);
-                if(cur.right != null)queue.offer(cur.right);
+                if (cur.left != null) queue.offer(cur.left);
+                if (cur.right != null) queue.offer(cur.right);
             }
         }
         return ans;
     }
 
 
-    /*
+    /**
      * Leetcode: 993 -> Cousins in binary tree.
      * Returns true if there exists 2 node with the given values(x,y) and are on the same level with different direct parent.
      * */
     public boolean isCousins(TreeNode root, int x, int y) {
-        if(root == null) return false;
+        if (root == null) return false;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         boolean oneFound = false;
-        while(!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             int k = queue.size();
-            for(int i = 0;i<k;i++){
+            for (int i = 0; i < k; i++) {
                 TreeNode cur = queue.poll();
-                if(cur.val == x || cur.val == y){
-                    if(oneFound)return true;
+                if (cur.val == x || cur.val == y) {
+                    if (oneFound) return true;
                     oneFound = true;
                 }
-                if(cur.left != null && cur.right !=null && (cur.left.val == x || cur.left.val == y) && (cur.right.val == x || cur.right.val == y))return false; // Direct Siblings.
-                if(cur.left != null)queue.offer(cur.left);
-                if(cur.right != null)queue.offer(cur.right);
+                if (cur.left != null && cur.right != null && (cur.left.val == x || cur.left.val == y) && (cur.right.val == x || cur.right.val == y))
+                    return false; // Direct Siblings.
+                if (cur.left != null) queue.offer(cur.left);
+                if (cur.right != null) queue.offer(cur.right);
             }
-            if(oneFound)return false;
+            if (oneFound) return false;
         }
         return false;
     }
 
 
-    /*
+    /**
      * Leetcode: 101 -> Return if the given tree is symmetric or not.
      * */
     public boolean isSymmetric(TreeNode root) {
-        if(root == null)return true;
+        if (root == null) return true;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root.left);
         queue.offer(root.right);
-        while(!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             TreeNode left = queue.poll();
             TreeNode right = queue.poll();
 
-            if(left == null && right == null)continue;
-            if(left == null || right == null)return false;
-            if(left.val != right.val) return false;
+            if (left == null && right == null) continue;
+            if (left == null || right == null) return false;
+            if (left.val != right.val) return false;
 
             queue.offer(left.left);
             queue.offer(right.right);
@@ -253,5 +256,16 @@ public class BFS {
             queue.offer(right.left);
         }
         return true;
+//        return helper(root.left,root.right); /// Recursive Approach of solving the same problem.
+    }
+
+    public boolean helper(TreeNode left, TreeNode right) {
+        if (left == null && right == null) return true;
+        if (left == null || right == null) return false;
+        if (left.val != right.val) return false;
+
+        boolean flag = helper(left.left, right.right);
+        if (!flag) return false;
+        return helper(left.right, right.left);
     }
 }
