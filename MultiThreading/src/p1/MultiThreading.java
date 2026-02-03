@@ -205,11 +205,11 @@ class MyThread extends Thread {
             stringBuffer.append('*');
             stringBuilder.append('*');
 
-            ///  In Each Iteration the current thread will sleep for 1 millisecond.
             try {
-                Thread.sleep(1); /// Will Make the current thread to sleep for 1 millisecond.
+                Thread.sleep(1);
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                Thread.currentThread().interrupt(); // restore interrupt status
+                return; // exit cleanly
             }
         }
     }
@@ -234,9 +234,10 @@ class MyThread2 implements Runnable {
             stringBuilder.append('#');
 
             try {
-                Thread.sleep(1);/// Will Make the current thread to sleep for 1 millisecond.
+                Thread.sleep(1);
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                Thread.currentThread().interrupt(); // restore interrupt status
+                return; // exit cleanly
             }
         }
     }
@@ -272,7 +273,7 @@ public class MultiThreading {
         String str2 = stringBuffer.toString();
 
         System.out.println(str1.equals(str2));
-        System.out.println((firstMismatchIndex(stringBuffer.toString(),stringBuffer.toString())));
+        System.out.println(firstMismatchIndex(str1, str2)); // compare builder vs buffer (was buffer vs buffer)
 
     }
 
